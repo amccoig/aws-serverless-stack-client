@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeSwitcher } from 'react-bootstrap-theme-switcher';
 import Amplify from 'aws-amplify';
 import config from './config';
-
+	
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,
@@ -32,10 +33,12 @@ Amplify.configure({
 });
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root')
+	<ThemeSwitcher themePath="/themes" defaultTheme="default">
+		<Router>
+			<App />
+		</Router>
+	</ThemeSwitcher>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

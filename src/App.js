@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { ThemeChooser } from 'react-bootstrap-theme-switcher';
 import "./App.css";
 import Routes from "./Routes";
 
@@ -17,6 +18,9 @@ function App(props) {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
+          	<NavItem>
+      			<ThemeChooser  themePath="/themes" />
+      		</NavItem>
             <LinkContainer to="/signup">
               <NavItem>Signup</NavItem>
             </LinkContainer>
