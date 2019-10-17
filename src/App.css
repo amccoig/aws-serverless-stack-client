@@ -5,3 +5,8 @@
 .App .navbar-brand {
   font-weight: bold;
 }
+
+.navbar-nav > li > a[role="button"] {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
