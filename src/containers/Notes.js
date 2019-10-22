@@ -88,15 +88,17 @@ export default function Notes(props) {
 	}
 
 	function deleteNote() {
-	  deleteAttachment();
+	  const attachment = note.attachment;
+	  if(attachment) {
+		  deleteAttachment(attachment);		  
+	  }
 	  return API.del("notes", `/notes/${props.match.params.id}`);
 	}
 	
-	function deleteAttachment() {
+	function deleteAttachment(file) {
 		try{
-			if(note.attachemnt) {
-				const attachmentPath = note.attachmentURL;
-				const deleted = s3Delete(attachmentPath);
+			if(file) {
+				const deleted = s3Delete(file);
 				return deleted;
 			}
 		} catch (e) {
